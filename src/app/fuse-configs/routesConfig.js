@@ -13,6 +13,7 @@ import {Error404PageConfig} from "app/main/errors/Error404PageConfig";
 import {DoctorAppConfig} from "app/main/doctors/DoctorAppConfig";
 import {PatientAppConfig} from "app/main/patients/PatientAppConfig";
 
+import {CareTakerAppConfig} from "app/main/caretaker/CareTakerAppConfig";
 
 
 import {LogoutConfig} from "app/main/logout/LogoutConfig";
@@ -32,6 +33,7 @@ const routeConfigs = [
     // FleetUserAppConfig,
     DoctorAppConfig,
     PatientAppConfig,
+    CareTakerAppConfig,
     Error404PageConfig,
 ];
 

@@ -52,7 +52,13 @@ const superAdminNavigationConfig = [
                 icon: 'whatshot',
                 url: '/patients'
             },
-           
+            {
+                id: 'careTaker',
+                title: 'Care Taker',
+                type: 'item',
+                icon: 'whatshot',
+                url: '/careTakers'
+            }
         ]
     },
     {

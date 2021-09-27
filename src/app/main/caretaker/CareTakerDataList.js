@@ -8,10 +8,10 @@ import { bindActionCreators } from "redux";
 import ReactTable from "react-table";
 import * as Actions from "./store/actions";
 
-class PatientDataList extends Component {
+class CareTakerDataList extends Component {
 
     render() {
-        const { patients, removePatient, openEditPatientDialog } = this.props;
+        const { careTakers, removeCareTaker, openEditCareTakerDialog } = this.props;
 
         return (
             <FuseAnimate animation="transition.slideUpIn" delay={300}>
@@ -22,12 +22,12 @@ class PatientDataList extends Component {
                             className: "cursor-pointer",
                             onClick: () => {
                                 if (rowInfo) {
-                                    openEditPatientDialog(rowInfo.original);
+                                    openEditCareTakerDialog(rowInfo.original);
                                 }
                             }
                         };
                     }}
-                    data={patients}
+                    data={careTakers}
                     columns={[
                         {
                             accessor: "profile_pic",
@@ -63,47 +63,37 @@ class PatientDataList extends Component {
                             className: "justify-center"
                         },
                         {
-                            Header: "Doctor",
-                            accessor: "doctor_name",
+                            Header: "Patient",
+                            accessor: "patient_name",
                             className: "justify-center"
                         },
                         {
-                            Header: "height",
-                            accessor: "height",
-                            className: "justify-center"
-                        },
-                        {
-                            Header: "weight",
-                            accessor: "weight",
-                            className: "justify-center"
-                        },
-                        // {
-                        //     Header: "",
-                        //     width: 128,
-                        //     Cell: (row) => (
-                        //         <div className="flex items-center justify-center">
-                        //             <IconButton
-                        //                 onClick={(ev) => {
-                        //                     if (
-                        //                         window.confirm(
-                        //                             "Are you sure to delete " +
-                        //                                 row.original
-                        //                                     .name +
-                        //                                 " Patient?"
-                        //                         )
-                        //                     ) {
-                        //                         ev.stopPropagation();
-                        //                         removePatient(
-                        //                             row.original.id
-                        //                         );
-                        //                     }
-                        //                 }}
-                        //             >
-                        //                 <Icon>delete</Icon>
-                        //             </IconButton>
-                        //         </div>
-                        //     )
-                        // }
+                            Header: "",
+                            width: 128,
+                            Cell: (row) => (
+                                <div className="flex items-center justify-center">
+                                    <IconButton
+                                        onClick={(ev) => {
+                                            if (
+                                                window.confirm(
+                                                    "Are you sure to delete " +
+                                                        row.original
+                                                            .name +
+                                                        " CareTaker?"
+                                                )
+                                            ) {
+                                                ev.stopPropagation();
+                                                removeCareTaker(
+                                                    row.original.id
+                                                );
+                                            }
+                                        }}
+                                    >
+                                        <Icon>delete</Icon>
+                                    </IconButton>
+                                </div>
+                            )
+                        }
                     ]}
                     defaultPageSize={20}
                     resizable={false}
@@ -121,19 +111,19 @@ class PatientDataList extends Component {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(
         {
-            openEditPatientDialog: Actions.openEditPatientDialog,
-            removePatient: Actions.removePatient
+            openEditCareTakerDialog: Actions.openEditCareTakerDialog,
+            removeCareTaker: Actions.removeCareTaker
         },
         dispatch
     );
 }
 
-function mapStateToProps({ PatientApp }) {
+function mapStateToProps({ CareTakerApp }) {
     return {
-        patients: PatientApp.PatientAppReducer.entities
+        careTakers: CareTakerApp.CareTakerAppReducer.entities
     };
 }
 
 export default withRouter(
-    connect(mapStateToProps, mapDispatchToProps)(PatientDataList)
+    connect(mapStateToProps, mapDispatchToProps)(CareTakerDataList)
 );
