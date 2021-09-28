@@ -54,6 +54,155 @@ export const loginUser = (userData) => (dispatch) => {
 
         });
 };
+
+export const loginAdminUser = (userData) => (dispatch) => {
+    axios
+        .post(Base_URL + "user/auth/admin-login", userData)
+        .then((res) => {
+            // Save to localStorage
+            const {token} = res.data;
+            // Set token to ls
+            localStorage.setItem("jwtToken", token);
+            // Set token to Auth header
+            setAuthToken(token);
+            // Decode token to get user data
+            const decoded = jwt_decode(token);
+            localStorage.setItem("id", decoded.id);
+            localStorage.setItem("role", decoded.role);
+            const userInfo = {
+                ...decoded,
+                id: res.data.id,
+                role: res.data.role
+            };
+            // Set current user
+            dispatch(setCurrentUser(userInfo));
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch({
+                type: LOGIN_ERROR,
+                payload: err.response.data,
+            });
+            dispatch(
+                showMessage({
+                    message: "Something Went Wrong",
+                    variant: "error"
+                })
+            );
+        });
+};
+
+export const loginDoctorUser = (userData) => (dispatch) => {
+    axios
+        .post(Base_URL + "user/auth/doctor-login", userData)
+        .then((res) => {
+            // Save to localStorage
+            const {token} = res.data;
+            // Set token to ls
+            localStorage.setItem("jwtToken", token);
+            // Set token to Auth header
+            setAuthToken(token);
+            // Decode token to get user data
+            const decoded = jwt_decode(token);
+            localStorage.setItem("id", decoded.id);
+            localStorage.setItem("role", decoded.role);
+            const userInfo = {
+                ...decoded,
+                id: res.data.id,
+                role: res.data.role
+            };
+            // Set current user
+            dispatch(setCurrentUser(userInfo));
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch({
+                type: LOGIN_ERROR,
+                payload: err.response.data,
+            });
+            dispatch(
+                showMessage({
+                    message: "Something Went Wrong",
+                    variant: "error"
+                })
+            );
+        });
+};
+
+export const loginPatientUser = (userData) => (dispatch) => {
+    axios
+        .post(Base_URL + "user/auth/patient-login", userData)
+        .then((res) => {
+            // Save to localStorage
+            const {token} = res.data;
+            // Set token to ls
+            localStorage.setItem("jwtToken", token);
+            // Set token to Auth header
+            setAuthToken(token);
+            // Decode token to get user data
+            const decoded = jwt_decode(token);
+            localStorage.setItem("id", decoded.id);
+            localStorage.setItem("role", decoded.role);
+            const userInfo = {
+                ...decoded,
+                id: res.data.id,
+                role: res.data.role
+            };
+            // Set current user
+            dispatch(setCurrentUser(userInfo));
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch({
+                type: LOGIN_ERROR,
+                payload: err.response.data,
+            });
+            dispatch(
+                showMessage({
+                    message: "Something Went Wrong",
+                    variant: "error"
+                })
+            );
+        });
+};
+
+export const loginCareTakerUser = (userData) => (dispatch) => {
+    axios
+        .post(Base_URL + "user/auth/caretaker-login", userData)
+        .then((res) => {
+            // Save to localStorage
+            const {token} = res.data;
+            // Set token to ls
+            localStorage.setItem("jwtToken", token);
+            // Set token to Auth header
+            setAuthToken(token);
+            // Decode token to get user data
+            const decoded = jwt_decode(token);
+            localStorage.setItem("id", decoded.id);
+            localStorage.setItem("role", decoded.role);
+            const userInfo = {
+                ...decoded,
+                id: res.data.id,
+                role: res.data.role
+            };
+            // Set current user
+            dispatch(setCurrentUser(userInfo));
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch({
+                type: LOGIN_ERROR,
+                payload: err.response.data,
+            });
+            dispatch(
+                showMessage({
+                    message: "Something Went Wrong",
+                    variant: "error"
+                })
+            );
+        });
+};
+
 // Login - Get User Token
 export const loginBrandUser = (userData) => (dispatch) => {
     axios

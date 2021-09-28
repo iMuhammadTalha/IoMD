@@ -6,6 +6,12 @@ import {FuseUtils} from "@fuse/index";
 import {DashboardAppConfig} from "app/main/dashboard/DashboardAppConfig";
 import {UsersLoginConfig} from "app/main/login/LoginConfig";
 import {LoginConfig} from "app/main/super-login/LoginConfig";
+
+import {AdminLoginConfig} from "app/main/login-admin/LoginConfig";
+import {CareTakerLoginConfig} from "app/main/login-caretaker/LoginConfig";
+import {DoctorLoginConfig} from "app/main/login-doctor/LoginConfig";
+import {PatientLoginConfig} from "app/main/login-patient/LoginConfig";
+
 import {RegisterConfig} from "app/main/register/RegisterConfig";
 import {Error404PageConfig} from "app/main/errors/Error404PageConfig";
 
@@ -24,6 +30,12 @@ const routeConfigs = [
     UsersLoginConfig,                  // Used in logout & login
     LoginConfig,
     RegisterConfig,
+
+    AdminLoginConfig,
+    CareTakerLoginConfig,
+    DoctorLoginConfig,
+    PatientLoginConfig,
+
     // ReadingsAppConfig,
     // AirAppConfig,
     // GraphAppConfig,
@@ -48,6 +60,26 @@ const routes = [
         path: "/su-admin/",
         exact: true,
         component: () => <Redirect to="/su-admin/login"/>,
+    },
+    {
+        path: "/admin/",
+        exact: true,
+        component: () => <Redirect to="/admin/login"/>,
+    },
+    {
+        path: "/doctor/",
+        exact: true,
+        component: () => <Redirect to="/doctor/login"/>,
+    },
+    {
+        path: "/patient/",
+        exact: true,
+        component: () => <Redirect to="/patient/login"/>,
+    },
+    {
+        path: "/caretaker/",
+        exact: true,
+        component: () => <Redirect to="/caretaker/login"/>,
     },
     {
         path: "/dashboard/",

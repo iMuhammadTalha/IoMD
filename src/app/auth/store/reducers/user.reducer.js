@@ -5,7 +5,7 @@ const initialState = {
     success: false,
     role: 'guest',
     data: {
-        displayName: 'Admin Panel',
+        displayName: 'Panel',
         photoURL: '',
         email: '',
         brandId: null,

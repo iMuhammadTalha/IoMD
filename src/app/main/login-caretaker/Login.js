@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Card, CardContent, Tab, Tabs, Typography, withStyles} from '@material-ui/core';
 import {darken} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimate} from '@fuse';
-import {withRouter} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import JWTLoginTab from './tabs/JWTLoginTab';
 
@@ -56,7 +56,7 @@ class Login extends Component {
 
                     <FuseAnimate delay={400}>
                     <Typography variant="subtitle1" color="inherit" className="max-w-512 mt-16">
-                    Internet of Medical Devices
+                    Care Taker Login
                     </Typography>
                     </FuseAnimate>
                 </div>
@@ -89,12 +89,12 @@ class Login extends Component {
 
                             {tabValue === 0 && <JWTLoginTab/>}
 
-                            {/* <div className="flex flex-col items-center justify-center pt-32">
-                <span className="font-medium">Don't have an account?</span>
-                <Link className="font-medium" to="/register">
-                  Create an account
-                </Link>
-              </div> */}
+                            <div className="flex flex-col items-center justify-center pt-32">
+                                <span className="font-medium">Don't have an account?</span>
+                                <Link className="font-medium" to="/su-admin/register">
+                                    Create an account
+                                </Link>
+                            </div>
                         </CardContent>
                     </Card>
                 </FuseAnimate>
