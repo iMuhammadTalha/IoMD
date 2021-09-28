@@ -94,7 +94,19 @@ export const removePatient = (id) => (dispatch) => {
 };
 
 export const getPatientsPaginationData = () => (dispatch) => {
-    let query = "user/patient/get-all-patients";
+
+    let role = null;
+    role = localStorage.getItem('role');
+
+    let query;
+    if(role=== 'admin' ) {
+        query = "user/patient/get-all-patients";
+    } else if(role=== 'doctor' ) {
+        let doctor_id = localStorage.getItem('id');
+        query = "user/patient/get-doctor-all-patients/" + doctor_id;
+    } else {
+        query = "user/careTaker/get-all-patients";
+    }
 
     axios
         .get(Base_URL + query)

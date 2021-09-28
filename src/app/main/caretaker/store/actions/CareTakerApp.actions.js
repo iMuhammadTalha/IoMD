@@ -20,7 +20,7 @@ export function getAllCareTakers() {
 
 export const addNewCareTaker = (newCareTaker) => (dispatch) => {
 
-console.log("CT",newCareTaker);
+
 
     axios
         .post(Base_URL + "user/careTaker/create-careTaker", newCareTaker)
@@ -94,7 +94,19 @@ export const removeCareTaker = (id) => (dispatch) => {
 };
 
 export const getCareTakersPaginationData = () => (dispatch) => {
-    let query = "user/careTaker/get-all-careTaker";
+    
+    let role = null;
+    role = localStorage.getItem('role');
+
+    let query;
+    if(role=== 'admin' ) {
+        query = "user/careTaker/get-all-careTaker";
+    } else if(role=== 'doctor' ) {
+        let doctor_id = localStorage.getItem('id');
+        query = "user/careTaker/get-doctor-all-careTaker/" + doctor_id;
+    } else {
+        query = "user/careTaker/get-all-careTaker";
+    }
 
     axios
         .get(Base_URL + query)
