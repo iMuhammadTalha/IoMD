@@ -1,8 +1,8 @@
 import {combineReducers} from 'redux';
-import readings from './reading.reducer';
+import vitalAppReducer from './vital.reducer';
 
 const reducer = combineReducers({
-    readings
+    vitalAppReducer
 });
 
 export default reducer;

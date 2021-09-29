@@ -21,6 +21,7 @@ import {PatientAppConfig} from "app/main/patients/PatientAppConfig";
 
 import {CareTakerAppConfig} from "app/main/caretaker/CareTakerAppConfig";
 
+import {VitalsAppConfig} from "app/main/vitals/VitalsAppConfig";
 
 import {LogoutConfig} from "app/main/logout/LogoutConfig";
 
@@ -35,6 +36,8 @@ const routeConfigs = [
     CareTakerLoginConfig,
     DoctorLoginConfig,
     PatientLoginConfig,
+
+    VitalsAppConfig,
 
     // ReadingsAppConfig,
     // AirAppConfig,

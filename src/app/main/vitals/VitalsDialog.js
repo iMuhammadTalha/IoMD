@@ -16,31 +16,31 @@ import * as Actions from './store/actions';
 import {connect} from 'react-redux';
 import _ from '@lodash';
 
-const newReadingState = {
+const newVitalState = {
     name: ''
 };
 
-class ReadingDialog extends Component {
-    state = {...newReadingState};
+class VitalDialog extends Component {
+    state = {...newVitalState};
 
     componentDidUpdate(prevProps, prevState, snapshot) {
         /**
          * After Dialog Open
          */
         if (
-            !prevProps.readingDialog.props.open &&
-            this.props.readingDialog.props.open
+            !prevProps.VitalDialog.props.open &&
+            this.props.VitalDialog.props.open
         ) {
             /**
              * Dialog type: 'edit'
              * Update State
              */
             if (
-                this.props.readingDialog.type === 'edit' &&
-                this.props.readingDialog.data &&
-                !_.isEqual(this.props.readingDialog.data, prevState)
+                this.props.VitalDialog.type === 'edit' &&
+                this.props.VitalDialog.data &&
+                !_.isEqual(this.props.VitalDialog.data, prevState)
             ) {
-                this.setState({...this.props.readingDialog.data});
+                this.setState({...this.props.VitalDialog.data});
             }
 
             /**
@@ -48,10 +48,10 @@ class ReadingDialog extends Component {
              * Update State
              */
             if (
-                this.props.readingDialog.type === 'new' &&
-                !_.isEqual(newReadingState, prevState)
+                this.props.VitalDialog.type === 'new' &&
+                !_.isEqual(newVitalState, prevState)
             ) {
-                this.setState({...newReadingState});
+                this.setState({...newVitalState});
             }
         }
     }
@@ -69,9 +69,9 @@ class ReadingDialog extends Component {
     };
 
     closeComposeDialog = () => {
-        this.props.readingDialog.type === 'edit'
-            ? this.props.closeEditReadingDialog()
-            : this.props.closeNewReadingDialog();
+        this.props.VitalDialog.type === 'edit'
+            ? this.props.closeEditVitalDialog()
+            : this.props.closeNewVitalDialog();
     };
 
     canBeSubmitted() {
@@ -81,10 +81,10 @@ class ReadingDialog extends Component {
 
     render() {
         const {
-            readingDialog,
-            // addReading,
-            updateReading,
-            removeReading
+            VitalDialog,
+            // addVital,
+            updateVital,
+            removeVital
         } = this.props;
 
         return (
@@ -92,7 +92,7 @@ class ReadingDialog extends Component {
                 classes={{
                     paper: 'm-24'
                 }}
-                {...readingDialog.props}
+                {...VitalDialog.props}
                 onClose={this.closeComposeDialog}
                 fullWidth
                 maxWidth="xs"
@@ -100,16 +100,16 @@ class ReadingDialog extends Component {
                 <AppBar position="static" elevation={1}>
                     <Toolbar className="flex w-full">
                         <Typography variant="subtitle1" color="inherit">
-                            {readingDialog.type === 'new' ? 'New Reading' : 'Edit Reading'}
+                            {VitalDialog.type === 'new' ? 'New Vital' : 'Edit Vital'}
                         </Typography>
                     </Toolbar>
                     <div className="flex flex-col items-center justify-center pb-24">
                         {/* <Avatar
               className="w-96 h-96"
-              alt="reading avatar"
+              alt="vital avatar"
               src={this.state.avatar}
             /> */}
-                        {readingDialog.type === 'edit' && (
+                        {VitalDialog.type === 'edit' && (
                             <Typography variant="h6" color="inherit" className="pt-8">
                                 {this.state.name}
                             </Typography>
@@ -138,13 +138,13 @@ class ReadingDialog extends Component {
                     </div>
                 </DialogContent>
 
-                {readingDialog.type === 'new' ? (
+                {VitalDialog.type === 'new' ? (
                     <DialogActions className="justify-between pl-16">
                         <Button
                             variant="contained"
                             color="primary"
                             onClick={() => {
-                                // addReading(this.state);
+                                // addVital(this.state);
                                 this.closeComposeDialog();
                             }}
                             disabled={!this.canBeSubmitted()}
@@ -158,7 +158,7 @@ class ReadingDialog extends Component {
                             variant="contained"
                             color="primary"
                             onClick={() => {
-                                updateReading(this.state);
+                                updateVital(this.state);
                                 this.closeComposeDialog();
                             }}
                             disabled={!this.canBeSubmitted()}
@@ -169,8 +169,8 @@ class ReadingDialog extends Component {
                             hidden={localStorage.getItem('Role') !== 'superAdmin'}
                             disabled={localStorage.getItem('Role') !== 'superAdmin'}
                             onClick={() => {
-                                if (window.confirm('Are you sure to delete ' + this.state.name + ' reading?')) {
-                                    removeReading(this.state.id);
+                                if (window.confirm('Are you sure to delete ' + this.state.name + ' vital?')) {
+                                    removeVital(this.state.id);
                                     this.closeComposeDialog();
                                 }
                             }}
@@ -187,23 +187,23 @@ class ReadingDialog extends Component {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(
         {
-            // closeEditReadingDialog: Actions.closeEditReadingDialog,
-            // closeNewReadingDialog: Actions.closeNewReadingDialog,
-            // addReading: Actions.addReading,
-            // updateReading: Actions.updateReading,
-            // removeReading: Actions.removeReading
+            // closeEditVitalDialog: Actions.closeEditVitalDialog,
+            // closeNewVitalDialog: Actions.closeNewVitalDialog,
+            // addVital: Actions.addVital,
+            // updateVital: Actions.updateVital,
+            // removeVital: Actions.removeVital
         },
         dispatch
     );
 }
 
-function mapStateToProps({readingsApp}) {
+function mapStateToProps({VitalsApp}) {
     return {
-        readingDialog: readingsApp.readings.readingDialog
+        VitalDialog: VitalsApp.vitalAppReducer.VitalDialog
     };
 }
 
 export default connect(
     mapStateToProps,
     mapDispatchToProps
-)(ReadingDialog);
+)(VitalDialog);

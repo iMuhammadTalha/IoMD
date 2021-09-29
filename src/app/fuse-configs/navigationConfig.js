@@ -187,7 +187,7 @@ const doctorNavigationConfig = [
                 id: 'vitals-tabular',
                 title: 'Vitals Data',
                 type: 'item',
-                url: '/doctors',
+                url: '/vitals',
                 icon: 'whatshot',
             },
             {

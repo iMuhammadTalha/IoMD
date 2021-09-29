@@ -4,10 +4,13 @@ import * as authActions from '../../../../auth/store/actions';
 
 const initialState = {
     entities: [],
+    patients: [],
+    selected_patient_id: "Undefined",
+
     searchText: '',
-    selectedReadingIds: [],
+    selectedVitalIds: [],
     routeParams: {},
-    readingDialog: {
+    VitalDialog: {
         type: 'new',
         props: {
             open: false
@@ -16,16 +19,16 @@ const initialState = {
     }
 };
 
-const readingsReducer = function (state = initialState, action) {
+const vitalsReducer = function (state = initialState, action) {
     switch (action.type) {
         case authActions.LOGOUT: {
             return {
                 ...state,
                 entities: [],
                 searchText: '',
-                selectedReadingIds: [],
+                selectedVitalIds: [],
                 routeParams: {},
-                readingDialog: {
+                VitalDialog: {
                     type: 'new',
                     props: {
                         open: false
@@ -34,26 +37,34 @@ const readingsReducer = function (state = initialState, action) {
                 }
             };
         }
-        case Actions.GET_Readings: {
+        case Actions.GET_ALL_PATIENTS: {
+            return {
+                ...state,
+                patients: action.payload
+            };
+        }
+
+        case Actions.GET_Vitals: {
             return {
                 ...state,
                 entities: _.keyBy(action.payload, 'id'),
-                pages: (action.pages)
+                pages: (action.pages),
+                selected_patient_id: (action.selected_patient_id)
             };
         }
-        case Actions.ADD_Reading: {
+        case Actions.ADD_Vital: {
             return {
                 ...state,
                 entities: _.keyBy(action.payload, 'id')
             };
         }
-        case Actions.UPDATE_Reading: {
+        case Actions.UPDATE_Vital: {
             return {
                 ...state,
                 entities: _.keyBy(action.payload, 'id')
             };
         }
-        case Actions.REMOVE_Reading: {
+        case Actions.REMOVE_Vital: {
             return {
                 ...state,
                 entities: _.keyBy(action.payload, 'id')
@@ -65,47 +76,47 @@ const readingsReducer = function (state = initialState, action) {
                 searchText: action.searchText
             };
         }
-        case Actions.getReadingsPaginationData: {
+        case Actions.getVitalsPaginationData: {
             return {
                 ...state
             }
         }
-        case Actions.TOGGLE_IN_SELECTED_ReadingS: {
-            const readingId = action.readingId;
+        case Actions.TOGGLE_IN_SELECTED_VitalS: {
+            const vitalId = action.vitalId;
 
-            let selectedReadingIds = [...state.selectedReadingIds];
+            let selectedVitalIds = [...state.selectedVitalIds];
 
-            if (selectedReadingIds.find(id => id === readingId) !== undefined) {
-                selectedReadingIds = selectedReadingIds.filter(id => id !== readingId);
+            if (selectedVitalIds.find(id => id === vitalId) !== undefined) {
+                selectedVitalIds = selectedVitalIds.filter(id => id !== vitalId);
             } else {
-                selectedReadingIds = [...selectedReadingIds, readingId];
+                selectedVitalIds = [...selectedVitalIds, vitalId];
             }
 
             return {
                 ...state,
-                selectedReadingIds: selectedReadingIds
+                selectedVitalIds: selectedVitalIds
             };
         }
-        case Actions.SELECT_ALL_ReadingS: {
+        case Actions.SELECT_ALL_VitalS: {
             const arr = Object.keys(state.entities).map(k => state.entities[k]);
 
-            const selectedReadingIds = arr.map(reading => reading.id);
+            const selectedVitalIds = arr.map(vital => vital.id);
 
             return {
                 ...state,
-                selectedReadingIds: selectedReadingIds
+                selectedVitalIds: selectedVitalIds
             };
         }
-        case Actions.DESELECT_ALL_ReadingS: {
+        case Actions.DESELECT_ALL_VitalS: {
             return {
                 ...state,
-                selectedReadingIds: []
+                selectedVitalIds: []
             };
         }
-        case Actions.OPEN_NEW_Reading_DIALOG: {
+        case Actions.OPEN_NEW_Vital_DIALOG: {
             return {
                 ...state,
-                readingDialog: {
+                VitalDialog: {
                     type: 'new',
                     props: {
                         open: true
@@ -114,10 +125,10 @@ const readingsReducer = function (state = initialState, action) {
                 }
             };
         }
-        case Actions.CLOSE_NEW_Reading_DIALOG: {
+        case Actions.CLOSE_NEW_Vital_DIALOG: {
             return {
                 ...state,
-                readingDialog: {
+                VitalDialog: {
                     type: 'new',
                     props: {
                         open: false
@@ -126,10 +137,10 @@ const readingsReducer = function (state = initialState, action) {
                 }
             };
         }
-        case Actions.OPEN_EDIT_Reading_DIALOG: {
+        case Actions.OPEN_EDIT_Vital_DIALOG: {
             return {
                 ...state,
-                readingDialog: {
+                VitalDialog: {
                     type: 'edit',
                     props: {
                         open: true
@@ -138,10 +149,10 @@ const readingsReducer = function (state = initialState, action) {
                 }
             };
         }
-        case Actions.CLOSE_EDIT_Reading_DIALOG: {
+        case Actions.CLOSE_EDIT_Vital_DIALOG: {
             return {
                 ...state,
-                readingDialog: {
+                VitalDialog: {
                     type: 'edit',
                     props: {
                         open: false
@@ -156,4 +167,4 @@ const readingsReducer = function (state = initialState, action) {
     }
 };
 
-export default readingsReducer;
+export default vitalsReducer;

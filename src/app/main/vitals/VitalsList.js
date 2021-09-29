@@ -18,9 +18,9 @@ import ReactTable from 'react-table';
 import * as Actions from './store/actions';
 import moment from "moment";
 
-class ReadingsList extends Component {
+class VitalsList extends Component {
     state = {
-        selectedReadingsMenu: null
+        selectedVitalsMenu: null
     };
 
     getFilteredArray = (entities, searchText) => {
@@ -31,36 +31,36 @@ class ReadingsList extends Component {
         return FuseUtils.filterArrayByString(arr, searchText);
     };
 
-    openSelectedReadingMenu = event => {
-        this.setState({selectedReadingsMenu: event.currentTarget});
+    openSelectedVitalMenu = event => {
+        this.setState({selectedVitalsMenu: event.currentTarget});
     };
 
-    closeSelectedReadingsMenu = () => {
-        this.setState({selectedReadingsMenu: null});
+    closeSelectedVitalsMenu = () => {
+        this.setState({selectedVitalsMenu: null});
     };
 
     render() {
         const {
-            readings,
+            vitals,
             searchText,
-            selectedReadingIds,
+            selectedVitalIds,
 
-            openEditReadingDialog,
-            removeReadings,
-            removeReading,
-            setReadingsUnstarred,
-            setReadingsStarred,
-            getReadingsPaginationData,
+            openEditVitalDialog,
+            removeVitals,
+            removeVital,
+            setVitalsUnstarred,
+            setVitalsStarred,
+            getVitalsPaginationData,
             totalPages,
         } = this.props;
-        const data = this.getFilteredArray(readings, searchText);
-        const {selectedReadingsMenu} = this.state;
+        const data = this.getFilteredArray(vitals, searchText);
+        const {selectedVitalsMenu} = this.state;
 
         if (!data && data.length === 0) {
             return (
                 <div className="flex items-center justify-center h-full">
                     <Typography color="textSecondary" variant="h5">
-                        There are no reading!
+                        There are no vital!
                     </Typography>
                 </div>
             );
@@ -75,7 +75,7 @@ class ReadingsList extends Component {
                             className: 'cursor-pointer',
                             onClick: (e, handleOriginal) => {
                                 if (rowInfo) {
-                                    // openEditReadingDialog(rowInfo.original);
+                                    // openEditVitalDialog(rowInfo.original);
                                 }
                             }
                         };
@@ -85,28 +85,28 @@ class ReadingsList extends Component {
 
                         // {
                         //     Header: () =>
-                        //         selectedReadingIds.length > 0 && (
+                        //         selectedVitalIds.length > 0 && (
                         //             <React.Fragment>
                         //                 <IconButton
                         //                     aria-owns={
-                        //                         selectedReadingsMenu ? 'selectedReadingsMenu' : null
+                        //                         selectedVitalsMenu ? 'selectedVitalsMenu' : null
                         //                     }
                         //                     aria-haspopup="true"
-                        //                     onClick={this.openSelectedReadingMenu}
+                        //                     onClick={this.openSelectedVitalMenu}
                         //                 >
                         //                     <Icon>more_horiz</Icon>
                         //                 </IconButton>
                         //                 <Menu
-                        //                     id="selectedReadingsMenu"
-                        //                     anchorEl={selectedReadingsMenu}
-                        //                     open={Boolean(selectedReadingsMenu)}
-                        //                     onClose={this.closeSelectedReadingsMenu}
+                        //                     id="selectedVitalsMenu"
+                        //                     anchorEl={selectedVitalsMenu}
+                        //                     open={Boolean(selectedVitalsMenu)}
+                        //                     onClose={this.closeSelectedVitalsMenu}
                         //                 >
                         //                     <MenuList>
                         //                         <MenuItem
                         //                             onClick={() => {
-                        //                                 removeReadings(selectedReadingIds);
-                        //                                 this.closeSelectedReadingsMenu();
+                        //                                 removeVitals(selectedVitalIds);
+                        //                                 this.closeSelectedVitalsMenu();
                         //                             }}
                         //                         >
                         //                             <ListItemIcon>
@@ -116,8 +116,8 @@ class ReadingsList extends Component {
                         //                         </MenuItem>
                         //                         <MenuItem
                         //                             onClick={() => {
-                        //                                 setReadingsStarred(selectedReadingIds);
-                        //                                 this.closeSelectedReadingsMenu();
+                        //                                 setVitalsStarred(selectedVitalIds);
+                        //                                 this.closeSelectedVitalsMenu();
                         //                             }}
                         //                         >
                         //                             <ListItemIcon>
@@ -127,8 +127,8 @@ class ReadingsList extends Component {
                         //                         </MenuItem>
                         //                         <MenuItem
                         //                             onClick={() => {
-                        //                                 setReadingsUnstarred(selectedReadingIds);
-                        //                                 this.closeSelectedReadingsMenu();
+                        //                                 setVitalsUnstarred(selectedVitalIds);
+                        //                                 this.closeSelectedVitalsMenu();
                         //                             }}
                         //                         >
                         //                             <ListItemIcon>
@@ -172,56 +172,56 @@ class ReadingsList extends Component {
                             className: 'justify-center font-bold'
                         },
                         {
-                            Header: 'CH4',
-                            accessor: 'ch4',
+                            Header: 'Heart Rate',
+                            accessor: 'heart_rate',
                             filterable: false,
                             className: 'justify-center font-bold'
                         },
                         {
-                            Header: 'CO',
-                            accessor: 'co',
+                            Header: 'Body Temperature',
+                            accessor: 'body_temperature',
                             filterable: false,
                             className: 'justify-center font-bold'
                         },
                         {
-                            Header: 'Dust',
-                            accessor: 'dust',
+                            Header: 'ECG',
+                            accessor: 'ecg',
                             filterable: false,
                             className: 'justify-center font-bold'
                         },
                         {
-                            Header: 'Humidity',
-                            accessor: 'humidity',
+                            Header: 'PPG',
+                            accessor: 'ppg',
                             filterable: false,
                             className: 'justify-center font-bold'
                         },
                         {
-                            Header: 'NH3',
-                            accessor: 'nh3',
+                            Header: 'SBP',
+                            accessor: 'sbp',
                             filterable: false,
                             className: 'justify-center font-bold'
                         },
                         {
-                            Header: 'NO2',
-                            accessor: 'no2',
+                            Header: 'DBP',
+                            accessor: 'dbp',
                             filterable: false,
                             className: 'justify-center font-bold'
                         },
                         {
-                            Header: 'CO2',
-                            accessor: 'co2',
+                            Header: 'SPO2',
+                            accessor: 'spo2',
                             filterable: false,
                             className: 'justify-center font-bold'
                         },
                         {
-                            Header: 'Temperature',
-                            accessor: 'temperature',
+                            Header: 'Respiration Rate',
+                            accessor: 'respiration_rate',
                             filterable: false,
                             className: 'justify-center font-bold'
                         },
                         {
-                            Header: 'Node',
-                            accessor: 'node_id',
+                            Header: 'Patient',
+                            accessor: 'patient_name',
                             filterable: false,
                             className: 'justify-center font-bold'
                         },
@@ -234,9 +234,9 @@ class ReadingsList extends Component {
                         //                 hidden={localStorage.getItem('Role') !== 'superAdmin'}
                         //                 disabled={localStorage.getItem('Role') !== 'superAdmin'}
                         //                 onClick={ev => {
-                        //                     if (window.confirm('Are you sure to delete ' + row.original.name + ' reading?')) {
+                        //                     if (window.confirm('Are you sure to delete ' + row.original.name + ' vital?')) {
                         //                         ev.stopPropagation();
-                        //                         removeReading(row.original.id);
+                        //                         removeVital(row.original.id);
                         //                     }
                         //                 }}
                         //             >
@@ -248,7 +248,7 @@ class ReadingsList extends Component {
                     ]}
                     defaultPageSize={20}
                     resizable={true}
-                    noDataText="No Air Reading found"
+                    noDataText="No Medical Vital found"
                     loading={this.state.loading}
                     showPagination={true}
                     showPaginationTop={false}
@@ -268,7 +268,7 @@ class ReadingsList extends Component {
                     manual  // this would indicate that server side pagination has been enabled
                     onFetchData={(state, instance) => {
                         // this.setState({loading: true});
-                        getReadingsPaginationData(state.page, state.pageSize, state.sorted, state.filtered);
+                        getVitalsPaginationData(state.page, state.pageSize, state.sorted, state.filtered);
                         // this.setState({loading: false});
                     }}
                 />
@@ -280,30 +280,30 @@ class ReadingsList extends Component {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(
         {
-            getReadings: Actions.getReadings,
-            toggleInSelectedReadings: Actions.toggleInSelectedReadings,
-            selectAllReadings: Actions.selectAllReadings,
-            // deSelectAllReadings: Actions.deSelectAllReadings,
-            openEditReadingDialog: Actions.openEditReadingDialog,
-            removeReadings: Actions.removeReadings,
-            removeReading: Actions.removeReading,
-            toggleStarredReading: Actions.toggleStarredReading,
-            toggleStarredReadings: Actions.toggleStarredReadings,
-            setReadingsStarred: Actions.setReadingsStarred,
-            getReadingsPaginationData: Actions.getReadingsPaginationData,
-            setReadingsUnstarred: Actions.setReadingsUnstarred
+            getVitals: Actions.getVitals,
+            toggleInSelectedVitals: Actions.toggleInSelectedVitals,
+            selectAllVitals: Actions.selectAllVitals,
+            // deSelectAllVitals: Actions.deSelectAllVitals,
+            // openEditVitalDialog: Actions.openEditVitalDialog,
+            removeVitals: Actions.removeVitals,
+            removeVital: Actions.removeVital,
+            toggleStarredVital: Actions.toggleStarredVital,
+            toggleStarredVitals: Actions.toggleStarredVitals,
+            setVitalsStarred: Actions.setVitalsStarred,
+            getVitalsPaginationData: Actions.getVitalsPaginationData,
+            setVitalsUnstarred: Actions.setVitalsUnstarred
         },
         dispatch
     );
 }
 
-function mapStateToProps({readingsApp}) {
+function mapStateToProps({VitalsApp}) {
     return {
-        readings: readingsApp.readings.entities,
-        totalPages: readingsApp.readings.pages,
-        selectedReadingIds: readingsApp.readings.selectedReadingIds,
-        searchText: readingsApp.readings.searchText,
-        user: readingsApp.user
+        vitals: VitalsApp.vitalAppReducer.entities,
+        totalPages: VitalsApp.vitalAppReducer.pages,
+        selectedVitalIds: VitalsApp.vitalAppReducer.selectedVitalIds,
+        searchText: VitalsApp.vitalAppReducer.searchText,
+        user: VitalsApp.user
     };
 }
 
@@ -311,5 +311,5 @@ export default withRouter(
     connect(
         mapStateToProps,
         mapDispatchToProps
-    )(ReadingsList)
+    )(VitalsList)
 );
