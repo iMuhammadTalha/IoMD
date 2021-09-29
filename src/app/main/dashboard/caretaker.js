@@ -14,9 +14,9 @@ class caretaker extends Component {
     }
 
     refreshData = () => {
-        const url = "air/get-a-recent-reading/1";
+        const url = "user/caretaker/get-total-caretakers";
 
-        this.props.getARecentReading(url);
+        this.props.getTotalCareTaker(url);
     }
 
     render() {
@@ -43,7 +43,7 @@ class caretaker extends Component {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(
         {
-            getARecentReading: Actions.getARecentReading
+            getTotalCareTaker: Actions.getTotalCareTaker
         },
         dispatch
     );

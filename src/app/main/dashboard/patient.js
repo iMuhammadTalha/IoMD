@@ -14,9 +14,9 @@ class patient extends Component {
     }
 
     refreshData = () => {
-        const url = "air/get-a-recent-reading/1";
+        const url = "user/patient/get-total-patients";
 
-        this.props.getARecentReading(url);
+        this.props.getTotalPatient(url);
     }
 
     render() {
@@ -43,7 +43,7 @@ class patient extends Component {
 function mapDispatchToProps(dispatch) {
     return bindActionCreators(
         {
-            getARecentReading: Actions.getARecentReading
+            getTotalPatient: Actions.getTotalPatient
         },
         dispatch
     );

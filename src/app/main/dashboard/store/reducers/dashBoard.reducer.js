@@ -6,6 +6,7 @@ const initialState = {
 
     doctor: 0, 
     patient: 0,
+    caretaker: 0,
 
     recentAQI: 0,
 
@@ -41,27 +42,28 @@ const DashboardReducer = function (state = initialState, action) {
             };
         }
 
-        case Actions.GET_A_RECENT_READING: {
+        case Actions.GET_TOTAL_DRIVER: {
             return {
                 ...state,
 
-                doctor: action.payload.doctor,
-                patient: action.payload.patient,
-
-                co: action.payload.co,
-                ch4: action.payload.ch4,
-                nh3: action.payload.nh3,
-                dust: action.payload.dust,
-                humidity: action.payload.humidity,
-                no2: action.payload.no2,
-                co2: action.payload.co2,
-                temperature: action.payload.temperature,
-                created_time: action.payload.created_time
+                doctor: action.payload
             };
         }
 
+        case Actions.GET_TOTAL_PATIENT: {
+            return {
+                ...state,
 
-        
+                patient: action.payload
+            };
+        }
+        case Actions.GET_TOTAL_CARETAKER: {
+            return {
+                ...state,
+
+                caretaker: action.payload
+            };
+        }
         
         default: {
             return state;

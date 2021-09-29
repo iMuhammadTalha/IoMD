@@ -5,7 +5,9 @@ import {Base_URL} from "../../../../server";
 import {showMessage} from "app/store/actions/fuse";
 
 export const GET_RECENT_AQI = "[DASHBOARD APP] GET RECENT AQI";
-export const GET_A_RECENT_READING = "[DASHBOARD APP] GET RECENT READING";
+export const GET_TOTAL_DRIVER = "[DASHBOARD APP] GET TOTAL DOCTORS";
+export const GET_TOTAL_PATIENT = "[DASHBOARD APP] GET TOTAL PATIENTS";
+export const GET_TOTAL_CARETAKER = "[DASHBOARD APP] GET TOTAL CARETAKERS";
 
 export const getRecentAQI = () => (dispatch) => {
     const query = "air/get-AQI/1";
@@ -29,21 +31,60 @@ export const getRecentAQI = () => (dispatch) => {
         });
 };
 
-export const getARecentReading = (query) => (dispatch) => {
+export const getTotalDoctor = (query) => (dispatch) => {
     
     axios
         .get(Base_URL + query)
         .then((res) => {
             dispatch({
-                type: GET_A_RECENT_READING,
-                payload: res.data
+                type: GET_TOTAL_DRIVER,
+                payload: res.data.totalDoctors
             });
         })
-        .then(() => dispatch(updateAQI()))
         .catch((err) => {
             dispatch(
                 showMessage({
-                    message: "Unable to get recent reading...",
+                    message: "Unable to get recent doctor...",
+                    variant: "error"
+                })
+            );
+        });
+};
+
+export const getTotalPatient = (query) => (dispatch) => {
+    
+    axios
+        .get(Base_URL + query)
+        .then((res) => {
+            dispatch({
+                type: GET_TOTAL_PATIENT,
+                payload: res.data.totalPatients
+            });
+        })
+        .catch((err) => {
+            dispatch(
+                showMessage({
+                    message: "Unable to get recent patient...",
+                    variant: "error"
+                })
+            );
+        });
+};
+
+export const getTotalCareTaker = (query) => (dispatch) => {
+    
+    axios
+        .get(Base_URL + query)
+        .then((res) => {
+            dispatch({
+                type: GET_TOTAL_CARETAKER,
+                payload: res.data.totalCareTakers
+            });
+        })
+        .catch((err) => {
+            dispatch(
+                showMessage({
+                    message: "Unable to get recent caretaker...",
                     variant: "error"
                 })
             );
