@@ -7,7 +7,7 @@ export const DashboardAppConfig = {
             config: {}
         }
     },
-    auth: authRoles.all,
+    // auth: authRoles.all,
     routes: [
         {
             path: "/dashboard",
