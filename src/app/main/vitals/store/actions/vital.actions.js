@@ -457,6 +457,18 @@ export const getVitalsPaginationData = (
                 sortingName +
                 "/" +
                 sortingOrder;
+        } else if(role=== 'caretaker') {
+            let caretaker_id = localStorage.getItem('id');
+            query = "vital/get-patient-all-vitals-by-caretaker/" +
+                caretaker_id +
+                "/" +
+                page +
+                "/" +
+                pageSize +
+                "/" +
+                sortingName +
+                "/" +
+                sortingOrder;
         } else {
             query =
                 "vital/get-all-vitals/" +
