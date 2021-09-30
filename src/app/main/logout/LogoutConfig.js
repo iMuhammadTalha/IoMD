@@ -27,7 +27,7 @@ export const LogoutConfig = {
                     return <Redirect to="/caretaker/login"/>;
                 } else {
                     localStorage.removeItem('Role');
-                    return <Redirect to="/login"/>;
+                    return <Redirect to="/home"/>;
                 }
             }
         }

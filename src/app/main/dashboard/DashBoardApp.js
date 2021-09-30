@@ -33,7 +33,9 @@ const styles = () => ({
 class DashBoardApp extends Component {
     render() {
         const {classes} = this.props;
-
+        if (!localStorage.getItem('jwtToken')) {
+            window.location = '/home';
+        }
         return (
             // <FusePageSimple
             //     classes={{

@@ -82,6 +82,8 @@ class auth0Service {
         localStorage.removeItem('id_token');
         localStorage.removeItem('expires_at');
         localStorage.removeItem('auth0.ssodata');
+        localStorage.removeItem('id');
+        localStorage.removeItem('role');
     };
 
     isAuthenticated = () => {

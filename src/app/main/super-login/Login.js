@@ -50,8 +50,8 @@ class Login extends Component {
 
                     <FuseAnimate animation="transition.slideUpIn" delay={300}>
                         <Typography variant="h3" color="inherit" className="font-light">
-                            Welcome to the IoMD!
-                        </Typography>
+                            Cardiac Health Monitoring!                        
+                            </Typography>
                     </FuseAnimate>
 
                     <FuseAnimate delay={400}>
@@ -89,12 +89,12 @@ class Login extends Component {
 
                             {tabValue === 0 && <JWTLoginTab/>}
 
-                            <div className="flex flex-col items-center justify-center pt-32">
+                            {/* <div className="flex flex-col items-center justify-center pt-32">
                                 <span className="font-medium">Don't have an account?</span>
                                 <Link className="font-medium" to="/su-admin/register">
                                     Create an account
                                 </Link>
-                            </div>
+                            </div> */}
                         </CardContent>
                     </Card>
                 </FuseAnimate>

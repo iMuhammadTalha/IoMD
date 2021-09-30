@@ -7,7 +7,8 @@ export const PatientAppConfig = {
             config: {}
         }
     },
-    // auth: authRoles.admin,
+    // auth: authRoles.all,
+    
     routes: [
         {
             path: "/patients",

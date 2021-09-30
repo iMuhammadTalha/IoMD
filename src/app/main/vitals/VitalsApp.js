@@ -36,7 +36,7 @@ class VitalsApp extends Component {
     render() {
         const {classes, openNewVitalDialog} = this.props;
         if (!localStorage.getItem('jwtToken')) {
-            window.location = '/login';
+            window.location = '/home';
         }
         return (
             <React.Fragment>

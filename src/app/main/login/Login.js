@@ -50,8 +50,7 @@ class Login extends Component {
 
                     <FuseAnimate animation="transition.slideUpIn" delay={300}>
                         <Typography variant="h3" color="inherit" className="font-light">
-                            Welcome to the IoMD!
-                        </Typography>
+                            Cardiac Health Monitoring!                        </Typography>
                     </FuseAnimate>
 
                     <FuseAnimate delay={400}>

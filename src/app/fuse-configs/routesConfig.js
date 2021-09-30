@@ -25,7 +25,12 @@ import {VitalsAppConfig} from "app/main/vitals/VitalsAppConfig";
 
 import {LogoutConfig} from "app/main/logout/LogoutConfig";
 
+import {HomeConfig} from "app/main/home/HomeConfig";
+
+
 const routeConfigs = [
+    HomeConfig,
+
     DashboardAppConfig,
     // AirDashboardAppConfig,
     UsersLoginConfig,                  // Used in logout & login

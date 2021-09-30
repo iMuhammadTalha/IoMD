@@ -31,6 +31,9 @@ class PatientApp extends Component {
 
     render() {
         const {classes} = this.props;
+        if (!localStorage.getItem('jwtToken')) {
+            window.location = '/home';
+        }
         return (
             <React.Fragment>
                 <FusePageSimple

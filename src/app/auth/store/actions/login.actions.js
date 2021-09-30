@@ -30,8 +30,8 @@ export const loginUser = (userData) => (dispatch) => {
             localStorage.setItem("id", decoded.id);
             const userInfo = {
                 ...decoded,
-                companyId: 1, //res.data.companyId,
-                brandId: 1//res.data.brandId,
+                // companyId: 1, //res.data.companyId,
+                // brandId: 1//res.data.brandId,
             };
             // Set current user
             dispatch(setCurrentUser(userInfo));
@@ -213,8 +213,8 @@ export const loginBrandUser = (userData) => (dispatch) => {
             const {token} = res.data;
             // Set token to ls
             localStorage.setItem("jwtToken", token);
-            localStorage.setItem("companyId", res.data.companyId);
-            localStorage.setItem("brandId", res.data.brandId);
+            // localStorage.setItem("companyId", res.data.companyId);
+            // localStorage.setItem("brandId", res.data.brandId);
             // Set token to Auth header
             setAuthToken(token);
             // Decode token to get user data
@@ -222,8 +222,8 @@ export const loginBrandUser = (userData) => (dispatch) => {
 
             const userInfo = {
                 ...decoded,
-                companyId: res.data.companyId,
-                brandId: res.data.brandId,
+                // companyId: res.data.companyId,
+                // brandId: res.data.brandId,
             };
             // Set current user
             dispatch(setCurrentUser(userInfo));
@@ -266,7 +266,9 @@ export const setCurrentUser = (decoded) => {
 export const logoutUser = () => (dispatch) => {
     // Remove token from localStorage
     localStorage.removeItem("jwtToken");
-    // localStorage.removeItem('Role');
+    localStorage.removeItem('Role');
+    localStorage.removeItem('role');
+    localStorage.removeItem('id');
     // Remove auth header for future requests
     setAuthToken(false);
     // Set current user to {} which will set isAuthenticated to false

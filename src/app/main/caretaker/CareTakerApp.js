@@ -30,6 +30,9 @@ class CareTakerApp extends Component {
     }
 
     render() {
+        if (!localStorage.getItem('jwtToken')) {
+            window.location = '/home';
+        }
         const {classes} = this.props;
         return (
             <React.Fragment>

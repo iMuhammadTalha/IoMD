@@ -105,7 +105,7 @@ export const getPatientsPaginationData = () => (dispatch) => {
         let doctor_id = localStorage.getItem('id');
         query = "user/patient/get-doctor-all-patients/" + doctor_id;
     } else {
-        query = "user/careTaker/get-all-patients";
+        query = "user/patient/get-all-patients";
     }
 
     axios

@@ -50,8 +50,7 @@ class Login extends Component {
 
                     <FuseAnimate animation="transition.slideUpIn" delay={300}>
                         <Typography variant="h3" color="inherit" className="font-light">
-                            Welcome to the IoMD!
-                        </Typography>
+                            Cardiac Health Monitoring!                        </Typography>
                     </FuseAnimate>
 
                     <FuseAnimate delay={400}>
@@ -65,7 +64,7 @@ class Login extends Component {
                     <Card className="w-full max-w-400 mx-auto m-16 md:m-0" square>
                         <CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
                             <Typography variant="h6" className="text-center md:w-full mb-48">
-                                LOGIN TO YOUR ACCOUNT
+                                LOGIN AS PATIENT
                             </Typography>
 
                             <Tabs
@@ -77,10 +76,10 @@ class Login extends Component {
                                 <Tab
                                     icon={
                                         <img
-                                            className="h-40 p-4 bg-black rounded-12"
-                                            src="assets/images/logos/jwt.svg"
-                                            alt="firebase"
-                                        />
+                                        className="w-128 mb-32"
+                                        src="assets/images/Patient.png"
+                                        alt="firebase"
+                                    />
                                     }
                                     className="min-w-0"
                                     label="JWT"
@@ -90,9 +89,9 @@ class Login extends Component {
                             {tabValue === 0 && <JWTLoginTab/>}
 
                             <div className="flex flex-col items-center justify-center pt-32">
-                                <span className="font-medium">Don't have an account?</span>
-                                <Link className="font-medium" to="/su-admin/register">
-                                    Create an account
+                                {/* <span className="font-medium">Don't have an account?</span> */}
+                                <Link className="font-medium" to="/home">
+                                    Home
                                 </Link>
                             </div>
                         </CardContent>
