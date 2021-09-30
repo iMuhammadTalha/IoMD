@@ -445,6 +445,18 @@ export const getVitalsPaginationData = (
                 "/" +
                 sortingOrder;
             }
+        } else if(role=== 'patient') {
+            let patient_id = localStorage.getItem('id');
+            query = "vital/get-a-patient-all-vitals/" +
+                patient_id +
+                "/" +
+                page +
+                "/" +
+                pageSize +
+                "/" +
+                sortingName +
+                "/" +
+                sortingOrder;
         } else {
             query =
                 "vital/get-all-vitals/" +
@@ -498,7 +510,7 @@ export const getAllPatients = () => (dispatch) => {
         let doctor_id = localStorage.getItem('id');
         query = "user/patient/get-doctor-all-patients/" + doctor_id;
     } else {
-        query = "user/careTaker/get-all-patients";
+        query = "user/patient/get-all-patients";
     }
     
     

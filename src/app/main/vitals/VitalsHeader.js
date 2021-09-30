@@ -10,9 +10,10 @@ import _ from "@lodash";
 
 class VitalsHeader extends Component {
     state = {
-        patient_id: ""
-        
+        patient_id: "",
+        role: localStorage.getItem('role')
     };
+    // let role= localStorage.getItem('role');
     render() {
         const {vitals, setSearchText, searchText, searchVital, mainTheme} = this.props;
         // this.state.patient_id=this.props.selected_patient_id;
@@ -30,50 +31,53 @@ class VitalsHeader extends Component {
                         </FuseAnimate>
                     </div>
                 </div>
-
-                <div className="d-flex flex-column flex-1 items-center justify-center pr-6 sm:px-4">
-                    <div className="flex flex-1 items-center justify-center pr-8 sm:px-12">
-                        
-                        <div className="d-flex flex-column flex-1 items-center justify-center pr-6 sm:px-4">
-                            <label>Select Patient</label>
-                            <MuiThemeProvider theme={mainTheme}>
-                                <FuseAnimate animation="transition.slideLeftIn" delay={300}>
-                                    <Paper
-                                        className="flex p-4 items-center w-full max-w-512 px-8 py-4"
-                                        elevation={1}
-                                    >
-                                        <select
-                                            style={{width: "100%"}}
-                                            onChange={this.handleChange}
-                                            value={this.state.patient_id}
-                                            id="patient_id"
-                                            name="patient_id"
+                
+                {this.state.role=== 'doctor' ? (
+                    <div className="d-flex flex-column flex-1 items-center justify-center pr-6 sm:px-4">
+                        <div className="flex flex-1 items-center justify-center pr-8 sm:px-12">
+                            
+                            <div className="d-flex flex-column flex-1 items-center justify-center pr-6 sm:px-4">
+                                <label>Select Patient</label>
+                                <MuiThemeProvider theme={mainTheme}>
+                                    <FuseAnimate animation="transition.slideLeftIn" delay={300}>
+                                        <Paper
+                                            className="flex p-4 items-center w-full max-w-512 px-8 py-4"
+                                            elevation={1}
                                         >
-                                            <option value="">All</option>
-                                            {this.props.patients.map((op) => (
-                                                <option key={op.id} value={op.id}>
-                                                    {op.name}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </Paper>
-                                </FuseAnimate>
-                            </MuiThemeProvider>
+                                            <select
+                                                style={{width: "100%"}}
+                                                onChange={this.handleChange}
+                                                value={this.state.patient_id}
+                                                id="patient_id"
+                                                name="patient_id"
+                                            >
+                                                <option value="">All</option>
+                                                {this.props.patients.map((op) => (
+                                                    <option key={op.id} value={op.id}>
+                                                        {op.name}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </Paper>
+                                    </FuseAnimate>
+                                </MuiThemeProvider>
+                            </div>
+                        </div>
+                        <div className="flex flex-1 items-center float-right justify-center pr-8 sm:px-12">
+                            <Button
+                                style={{marginTop: 5}}
+                                variant="contained"
+                                color="secondary"
+                                onClick={() => {
+                                    searchVital(this.state);
+                                }}
+                            >
+                                Apply
+                            </Button>
                         </div>
                     </div>
-                    <div className="flex flex-1 items-center float-right justify-center pr-8 sm:px-12">
-                        <Button
-                            style={{marginTop: 5}}
-                            variant="contained"
-                            color="secondary"
-                            onClick={() => {
-                                searchVital(this.state);
-                            }}
-                        >
-                            Apply
-                        </Button>
-                    </div>
-                </div>
+                ) : null}
+
                 {vitals && vitals.length > 0 ? (
                     <div className="flex flex-1 items-center justify-center pr-8 sm:px-12">
                         <MuiThemeProvider theme={mainTheme}>
