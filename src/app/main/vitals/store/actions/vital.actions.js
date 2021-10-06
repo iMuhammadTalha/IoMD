@@ -486,11 +486,11 @@ export const getVitalsPaginationData = (
     axios
         .get(Base_URL + query)
         .then((res) => {
-            // console.log("vitals get after calling", res);
+            // console.log("vitals get after calling", res.data);
             dispatch({
                 type: GET_Vitals,
                 payload: res.data.records,
-                pages: res.data.pages,
+                pages: res.data.totalPages,
                 selected_patient_id: selectedSearch.patient_id
             });
             return {};
