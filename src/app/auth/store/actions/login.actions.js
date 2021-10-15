@@ -71,8 +71,8 @@ export const loginAdminUser = (userData) => (dispatch) => {
             localStorage.setItem("role", decoded.role);
             const userInfo = {
                 ...decoded,
-                id: res.data.id,
-                role: res.data.role
+                // id: res.data.id,
+                // role: res.data.role
             };
             // Set current user
             dispatch(setCurrentUser(userInfo));
@@ -97,6 +97,9 @@ export const loginDoctorUser = (userData) => (dispatch) => {
         .post(Base_URL + "user/auth/doctor-login", userData)
         .then((res) => {
             // Save to localStorage
+
+            console.log(res);
+
             const {token} = res.data;
             // Set token to ls
             localStorage.setItem("jwtToken", token);
@@ -104,13 +107,14 @@ export const loginDoctorUser = (userData) => (dispatch) => {
             setAuthToken(token);
             // Decode token to get user data
             const decoded = jwt_decode(token);
-            localStorage.setItem("id", decoded.id);
-            localStorage.setItem("role", decoded.role);
+            localStorage.setItem("id", res.data.id);
+            localStorage.setItem("role", res.data.role);
             const userInfo = {
                 ...decoded,
-                id: res.data.id,
-                role: res.data.role
+                // id: res.data.id,
+                // role: res.data.role
             };
+            console.log('USER',userInfo);
             // Set current user
             dispatch(setCurrentUser(userInfo));
         })
@@ -145,8 +149,8 @@ export const loginPatientUser = (userData) => (dispatch) => {
             localStorage.setItem("role", decoded.role);
             const userInfo = {
                 ...decoded,
-                id: res.data.id,
-                role: res.data.role
+                // id: res.data.id,
+                // role: res.data.role
             };
             // Set current user
             dispatch(setCurrentUser(userInfo));
@@ -182,8 +186,8 @@ export const loginCareTakerUser = (userData) => (dispatch) => {
             localStorage.setItem("role", decoded.role);
             const userInfo = {
                 ...decoded,
-                id: res.data.id,
-                role: res.data.role
+                // id: res.data.id,
+                // role: res.data.role
             };
             // Set current user
             dispatch(setCurrentUser(userInfo));
@@ -256,6 +260,7 @@ export const verifyToken = (token) => (dispatch) => {
         });
 };
 export const setCurrentUser = (decoded) => {
+    console.log('DDD',decoded);
     return {
         type: SET_CURRENT_USER,
         payload: decoded,

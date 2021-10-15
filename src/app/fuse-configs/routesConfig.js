@@ -23,6 +23,9 @@ import {CareTakerAppConfig} from "app/main/caretaker/CareTakerAppConfig";
 
 import {VitalsAppConfig} from "app/main/vitals/VitalsAppConfig";
 
+import {GraphAppConfig} from "app/main/vitals-graph/GraphAppConfig";
+import {GraphsAppConfig} from "app/main/vitals-graphs/GraphAppConfig";
+
 import {LogoutConfig} from "app/main/logout/LogoutConfig";
 
 import {HomeConfig} from "app/main/home/HomeConfig";
@@ -43,7 +46,9 @@ const routeConfigs = [
     PatientLoginConfig,
 
     VitalsAppConfig,
+    GraphAppConfig,
 
+    GraphsAppConfig,
     // ReadingsAppConfig,
     // AirAppConfig,
     // GraphAppConfig,

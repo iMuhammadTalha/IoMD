@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {Card, CardContent, Tab, Tabs, Typography, withStyles} from '@material-ui/core';
 import {darken} from '@material-ui/core/styles/colorManipulator';
 import {FuseAnimate} from '@fuse';
-import {withRouter} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import classNames from 'classnames';
 import JWTLoginTab from './tabs/JWTLoginTab';
 
@@ -50,12 +50,13 @@ class Login extends Component {
 
                     <FuseAnimate animation="transition.slideUpIn" delay={300}>
                         <Typography variant="h3" color="inherit" className="font-light">
-                            Cardiac Health Monitoring!                        </Typography>
+                            Cardiac Health Monitoring!
+                        </Typography>
                     </FuseAnimate>
 
                     <FuseAnimate delay={400}>
                     <Typography variant="subtitle1" color="inherit" className="max-w-512 mt-16">
-                    Internet of Medical Devices
+                    Admin Login
                     </Typography>
                     </FuseAnimate>
                 </div>
@@ -64,7 +65,7 @@ class Login extends Component {
                     <Card className="w-full max-w-400 mx-auto m-16 md:m-0" square>
                         <CardContent className="flex flex-col items-center justify-center p-32 md:p-48 md:pt-128 ">
                             <Typography variant="h6" className="text-center md:w-full mb-48">
-                                LOGIN TO YOUR ACCOUNT
+                                LOGIN AS ADMIN
                             </Typography>
 
                             <Tabs
@@ -77,7 +78,7 @@ class Login extends Component {
                                     icon={
                                         <img
                                             className="h-40 p-4 bg-black rounded-12"
-                                            src="assets/images/logos/jwt.svg"
+                                            src="assets/images/Admin.png"
                                             alt="firebase"
                                         />
                                     }
@@ -88,12 +89,12 @@ class Login extends Component {
 
                             {tabValue === 0 && <JWTLoginTab/>}
 
-                            {/* <div className="flex flex-col items-center justify-center pt-32">
-                <span className="font-medium">Don't have an account?</span>
-                <Link className="font-medium" to="/register">
-                  Create an account
-                </Link>
-              </div> */}
+                            <div className="flex flex-col items-center justify-center pt-32">
+                                {/* <span className="font-medium">Don't have an account?</span> */}
+                                <Link className="font-medium" to="/home">
+                                    Home
+                                </Link>
+                            </div>
                         </CardContent>
                     </Card>
                 </FuseAnimate>

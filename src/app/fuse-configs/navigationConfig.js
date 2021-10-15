@@ -13,7 +13,7 @@ if (token) {
         }
     } catch (err) {
         if (err) {
-            console.log(err);
+            console.log('EROR',err);
             this.props.history.push('/login');
         }
     }
@@ -21,7 +21,7 @@ if (token) {
 else
 {
   if(window.location.pathname === '/su-admin/'||window.location.pathname === '/su-admin') {
-    window.location = '/su-admin/login';
+    window.location = '/home';
   } else if(window.location.pathname === '/admin/') {
     window.location = '/admin/login';
   } else if(window.location.pathname === '/doctor/') {
@@ -89,7 +89,7 @@ const superAdminNavigationConfig = [
 const adminNavigationConfig = [
     {
         id: 'Readings',
-        title: 'Admin Navigation',
+        title: '',
         type: 'group',
         icon: 'whatshot',
         children: [
@@ -143,7 +143,7 @@ const adminNavigationConfig = [
 const doctorNavigationConfig = [
     {
         id: 'Readings',
-        title: 'Doctor Navigation',
+        title: '',
         type: 'group',
         icon: 'whatshot',
         children: [
@@ -192,9 +192,16 @@ const doctorNavigationConfig = [
             },
             {
                 id: 'vitals-graphical',
+                title: 'ECG Graph',
+                type: 'item',
+                url: '/vitals-graph',
+                icon: 'whatshot',
+            },
+            {
+                id: 'vitals-graphical',
                 title: 'Vitals Graph',
                 type: 'item',
-                url: '/doctors',
+                url: '/vitals-graphs',
                 icon: 'whatshot',
             }
         ]
@@ -219,7 +226,7 @@ const doctorNavigationConfig = [
 const patientNavigationConfig = [
     {
         id: 'Readings',
-        title: 'Patient Navigation',
+        title: '',
         type: 'group',
         icon: 'whatshot',
         children: [
@@ -288,7 +295,7 @@ const patientNavigationConfig = [
 const caretakerNavigationConfig = [
     {
         id: 'Readings',
-        title: 'Care Taker Navigation',
+        title: '',
         type: 'group',
         icon: 'whatshot',
         children: [
