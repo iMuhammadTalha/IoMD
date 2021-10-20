@@ -268,9 +268,16 @@ const patientNavigationConfig = [
             },
             {
                 id: 'vitals-graphical',
+                title: 'ECG Graph',
+                type: 'item',
+                url: '/vitals-graph',
+                icon: 'whatshot',
+            },
+            {
+                id: 'vitals-graphical',
                 title: 'Vitals Graph',
                 type: 'item',
-                url: '/doctors',
+                url: '/vitals-graphs',
                 icon: 'whatshot',
             }
         ]
@@ -337,9 +344,16 @@ const caretakerNavigationConfig = [
             },
             {
                 id: 'vitals-graphical',
+                title: 'ECG Graph',
+                type: 'item',
+                url: '/vitals-graph',
+                icon: 'whatshot',
+            },
+            {
+                id: 'vitals-graphical',
                 title: 'Vitals Graph',
                 type: 'item',
-                url: '/doctors',
+                url: '/vitals-graphs',
                 icon: 'whatshot',
             }
         ]

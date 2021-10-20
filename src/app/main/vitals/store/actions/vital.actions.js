@@ -407,8 +407,8 @@ export const getVitalsPaginationData = (
 
 
         let role = null;
-        role = localStorage.getItem('role');
-    
+        role = localStorage.getItem('Role');
+    console.log('Role', role);
         let query;
         if(role=== 'admin') {
             query =
@@ -420,9 +420,10 @@ export const getVitalsPaginationData = (
                 sortingName +
                 "/" +
                 sortingOrder;
-        } else if(role=== 'doctor' ) {
+        } else if(role== 'doctor' ) {
             let doctor_id = localStorage.getItem('id');
-            if(selectedSearch.patient_id=="Undefined"){
+            console.log('ID', doctor_id)
+            if(selectedSearch.patient_id=='Undefined' || doctor_id=='Undefined'){
                 query = "vital/get-a-doctor-all-vitals/" +
                 doctor_id +
                 "/" +
@@ -513,7 +514,7 @@ export const getVitalsPaginationData = (
 export const getAllPatients = () => (dispatch) => {
     
     let role = null;
-    role = localStorage.getItem('role');
+    role = localStorage.getItem('Role');
 
     let query;
     if(role=== 'admin' ) {

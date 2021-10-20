@@ -96,7 +96,7 @@ export const removeCareTaker = (id) => (dispatch) => {
 export const getCareTakersPaginationData = () => (dispatch) => {
     
     let role = null;
-    role = localStorage.getItem('role');
+    role = localStorage.getItem('Role');
 
     let query;
     if(role=== 'admin' ) {

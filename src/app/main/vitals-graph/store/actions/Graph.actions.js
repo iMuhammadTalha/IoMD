@@ -58,7 +58,7 @@ export function searchReading(state) {
 export const getAllPatients = () => (dispatch) => {
     
     let role = null;
-    role = localStorage.getItem('role');
+    role = localStorage.getItem('Role');
 
     let query;
     if(role=== 'admin' ) {

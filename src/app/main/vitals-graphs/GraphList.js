@@ -61,6 +61,19 @@ console.log('dateeeeeeeeee',date);
                         </Paper>
                     </div>
                     ):( null )}
+
+                    {heartRateAvg && heartRateAvg.length == 0 ? (
+
+                    <div className="widget flex w-full  p-12">
+                        <Paper className="w-full rounded-8 border-1">
+                        <Typography variant="subtitle1" align="center" color="inherit">
+                            No Graph Data available
+                        </Typography>
+                        </Paper>
+                    </div>
+                    ):( null )}
+
+{heartRateAvg && heartRateAvg[0] ? (
                     <div className="widget flex w-full sm:w-1/2 md:w-1/2 p-12">
                     <Paper className="w-full rounded-8 border-1">
                                 <Line
@@ -103,8 +116,9 @@ console.log('dateeeeeeeeee',date);
                                     />
                             </Paper>
                     </div>
+):( null )}
 
-
+{bodyTemperatureAvg && bodyTemperatureAvg[0] ? (
                     <div className="widget flex w-full sm:w-1/2 md:w-1/2 p-12">
                     <Paper className="w-full rounded-8 border-1">
                                 <Line
@@ -147,6 +161,9 @@ console.log('dateeeeeeeeee',date);
                                     />
                             </Paper>
                     </div>
+):( null )}
+
+{sbpAvg && sbpAvg[0] ? (
 
                     <div className="widget flex w-full sm:w-1/2 md:w-1/2 p-12">
                     <Paper className="w-full rounded-8 border-1">
@@ -190,6 +207,9 @@ console.log('dateeeeeeeeee',date);
                                     />
                             </Paper>
                     </div>
+):( null )}
+
+{dbpAvg && dbpAvg[0] ? (
 
                     <div className="widget flex w-full sm:w-1/2 md:w-1/2 p-12">
                     <Paper className="w-full rounded-8 border-1">
@@ -233,7 +253,9 @@ console.log('dateeeeeeeeee',date);
                                     />
                             </Paper>
                     </div>
+):( null )}
 
+{spo2Avg && spo2Avg[0] ? (
                     <div className="widget flex w-full sm:w-1/2 md:w-1/2 p-12">
                     <Paper className="w-full rounded-8 border-1">
                                 <Line
@@ -276,7 +298,9 @@ console.log('dateeeeeeeeee',date);
                                     />
                             </Paper>
                     </div>
+):( null )}
 
+{respirationRateAvg && respirationRateAvg[0] ? (
                     <div className="widget flex w-full sm:w-1/2 md:w-1/2 p-12">
                     <Paper className="w-full rounded-8 border-1">
                                 <Line
@@ -319,6 +343,7 @@ console.log('dateeeeeeeeee',date);
                                     />
                             </Paper>
                     </div>
+):( null )}
 
                 </FuseAnimateGroup>
             </div>
@@ -337,7 +362,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps({ GraphApp }) {
     
-    console.log('LIST',GraphApp.GraphReducer.graphdata);
+    // console.log('LIST',GraphApp.GraphReducer);
     
     return {
         

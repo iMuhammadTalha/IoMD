@@ -13,7 +13,7 @@ class GraphHeader extends Component {
     state = {
         patient_id: "",
         graph_type: "",
-        role: localStorage.getItem('role')
+        role: localStorage.getItem('Role')
     };
     render() {
         const { graphs, mainTheme, searchReading } = this.props;
@@ -42,6 +42,7 @@ class GraphHeader extends Component {
                 <div className="d-flex flex-column flex-1 items-center justify-center pr-6 sm:px-4">
                     <div className="flex flex-1 items-center justify-center pr-8 sm:px-12">
                         
+                    {this.state.role== 'doctor' ? (
                         <div className="d-flex flex-column flex-1 items-center justify-center pr-6 sm:px-4">
                             <label>Select Patient</label>
                             <MuiThemeProvider theme={mainTheme}>
@@ -72,7 +73,7 @@ class GraphHeader extends Component {
                                 </FuseAnimate>
                             </MuiThemeProvider>
                         </div>
-
+                     ) : null} 
                         <div className="d-flex flex-column flex-1 items-center justify-center pr-6 sm:px-4">
                             <label>Select Time</label>
                             <MuiThemeProvider theme={mainTheme}>

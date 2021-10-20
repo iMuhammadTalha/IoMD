@@ -98,7 +98,6 @@ export const loginDoctorUser = (userData) => (dispatch) => {
         .then((res) => {
             // Save to localStorage
 
-            console.log(res);
 
             const {token} = res.data;
             // Set token to ls
@@ -107,8 +106,8 @@ export const loginDoctorUser = (userData) => (dispatch) => {
             setAuthToken(token);
             // Decode token to get user data
             const decoded = jwt_decode(token);
-            localStorage.setItem("id", res.data.id);
-            localStorage.setItem("role", res.data.role);
+            localStorage.setItem("id", decoded.id);
+            localStorage.setItem("role", decoded.role);
             const userInfo = {
                 ...decoded,
                 // id: res.data.id,

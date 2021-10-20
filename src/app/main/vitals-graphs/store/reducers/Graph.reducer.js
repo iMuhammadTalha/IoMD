@@ -18,7 +18,7 @@ const initialState = {
 const GraphReducer = function (state = initialState, action) {
     switch (action.type) {
         case Actions.GET_ALL_GRAPHS: {
-            console.log('REDUCER',action.payload);
+            // console.log('REDUCER',action.payload);
             return {
                 ...state,
                 heartRateAvg: action.payload.heartRateAvg,

@@ -24,7 +24,7 @@ export const getGraphsData = () => (dispatch) => {
     
 
     let role = null;
-    role = localStorage.getItem('role');
+    role = localStorage.getItem('Role');
     
     if(role=== 'admin') {
         if(selectedSearch.graph_type=='daily'){
@@ -112,7 +112,7 @@ export function searchReading(state) {
 export const getAllPatients = () => (dispatch) => {
     
     let role = null;
-    role = localStorage.getItem('role');
+    role = localStorage.getItem('Role');
 
     let query;
     if(role=== 'admin' ) {
@@ -120,6 +120,10 @@ export const getAllPatients = () => (dispatch) => {
     } else if(role=== 'doctor' ) {
         let doctor_id = localStorage.getItem('id');
         query = "user/patient/get-doctor-all-patients/" + doctor_id;
+    } else if(role=== 'patient' ) {
+        let patient_id = localStorage.getItem('id');
+        selectedSearch.patient_id=patient_id;
+        query = "user/patient/get-all-patients";
     } else {
         query = "user/patient/get-all-patients";
     }

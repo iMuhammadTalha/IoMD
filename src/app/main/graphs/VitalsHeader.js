@@ -13,7 +13,7 @@ class VitalsHeader extends Component {
         patient_id: "",
         role: localStorage.getItem('role')
     };
-    // let role= localStorage.getItem('role');
+    // let role= localStorage.getItem('Role');
     render() {
         const {vitals, setSearchText, searchText, searchVital, mainTheme} = this.props;
         // this.state.patient_id=this.props.selected_patient_id;

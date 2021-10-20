@@ -407,7 +407,7 @@ export const getVitalsPaginationData = (
 
 
         let role = null;
-        role = localStorage.getItem('role');
+        role = localStorage.getItem('Role');
     
         let query;
         if(role=== 'admin') {
@@ -513,7 +513,7 @@ export const getVitalsPaginationData = (
 export const getAllPatients = () => (dispatch) => {
     
     let role = null;
-    role = localStorage.getItem('role');
+    role = localStorage.getItem('Role');
 
     let query;
     if(role=== 'admin' ) {
