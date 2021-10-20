@@ -183,18 +183,18 @@ class VitalsList extends Component {
                             filterable: false,
                             className: 'justify-center font-bold'
                         },
-                        {
-                            Header: 'ECG',
-                            accessor: 'ecg',
-                            filterable: false,
-                            className: 'justify-center font-bold'
-                        },
-                        {
-                            Header: 'PPG',
-                            accessor: 'ppg',
-                            filterable: false,
-                            className: 'justify-center font-bold'
-                        },
+                        // {
+                        //     Header: 'ECG',
+                        //     accessor: 'ecg',
+                        //     filterable: false,
+                        //     className: 'justify-center font-bold'
+                        // },
+                        // {
+                        //     Header: 'PPG',
+                        //     accessor: 'ppg',
+                        //     filterable: false,
+                        //     className: 'justify-center font-bold'
+                        // },
                         {
                             Header: 'SBP',
                             accessor: 'sbp',
