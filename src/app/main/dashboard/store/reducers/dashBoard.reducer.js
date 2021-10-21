@@ -8,6 +8,13 @@ const initialState = {
     patient: 0,
     caretaker: 0,
 
+    sbp: 0,
+    dbp: 0,
+    body_temperature: 0,
+    heart_rate: 0,
+    respiration_rate: 0,
+    spo2: 0,
+
     recentAQI: 0,
 
     created_time: '',
@@ -35,10 +42,16 @@ const initialState = {
 const DashboardReducer = function (state = initialState, action) {
     switch (action.type) {
         
-        case Actions.GET_RECENT_AQI: {
+        case Actions.GET_RECENT_PATIENT_VITAL: {
+console.log(action.payload);
             return {
                 ...state,
-                recentAQI: action.payload
+                sbp: action.payload.sbp,
+                dbp: action.payload.dbp,
+                heart_rate: action.payload.heart_rate,
+                body_temperature: action.payload.body_temperature,
+                respiration_rate: action.payload.respiration_rate,
+                spo2: action.payload.spo2
             };
         }
 

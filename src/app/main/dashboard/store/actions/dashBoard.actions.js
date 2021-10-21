@@ -8,6 +8,7 @@ export const GET_RECENT_AQI = "[DASHBOARD APP] GET RECENT AQI";
 export const GET_TOTAL_DRIVER = "[DASHBOARD APP] GET TOTAL DOCTORS";
 export const GET_TOTAL_PATIENT = "[DASHBOARD APP] GET TOTAL PATIENTS";
 export const GET_TOTAL_CARETAKER = "[DASHBOARD APP] GET TOTAL CARETAKERS";
+export const GET_RECENT_PATIENT_VITAL = "[DASHBOARD APP] GET PATIENT VITAL";
 
 export const getRecentAQI = () => (dispatch) => {
     const query = "air/get-AQI/1";
@@ -85,6 +86,28 @@ export const getTotalCareTaker = (query) => (dispatch) => {
             dispatch(
                 showMessage({
                     message: "Unable to get recent caretaker...",
+                    variant: "error"
+                })
+            );
+        });
+};
+
+export const getPatientRecentVital = (query) => (dispatch) => {
+    
+    axios
+        .get(Base_URL + query)
+        .then((res) => {
+            console.log('VITAL',res);
+            dispatch({
+                type: GET_RECENT_PATIENT_VITAL,
+                payload: res.data
+            });
+        })
+        .catch((err) => {
+            console.log(err);
+            dispatch(
+                showMessage({
+                    message: "Unable to get recent patient vital...",
                     variant: "error"
                 })
             );

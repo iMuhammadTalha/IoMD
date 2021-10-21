@@ -14,7 +14,12 @@ import Doctor from "./doctor"
 import Patient from "./patient"
 import CareTaker from "./caretaker"
 
-
+import Vital from "./vital"
+import BP from "./bp"
+import HeartRate from "./heartRate"
+import Temperature from "./temperature"
+import SPO2 from "./spo2"
+import RespirationRate from "./respiration"
 
 import reducer from "./store/reducers";
 
@@ -31,6 +36,10 @@ const styles = () => ({
 });
 
 class DashBoardApp extends Component {
+    state = {
+        user_id: "",
+        role: localStorage.getItem('Role')
+    };
     render() {
         const {classes} = this.props;
         if (!localStorage.getItem('jwtToken')) {
@@ -92,17 +101,60 @@ class DashBoardApp extends Component {
 */}
 
 
+                {this.state.role== 'admin' ? (
                     <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
                         < Doctor />
                     </div>
+                ) : null}
 
+                {this.state.role== 'admin' || this.state.role== 'doctor' ? (
                     <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
                         < Patient />
                     </div>
+                ) : null}
 
+                {this.state.role== 'admin' ? (
                     <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
                         < CareTaker />
                     </div>
+                ) : null}
+
+                {/* {this.state.role== 'patient' ? (
+                    <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
+                        < Vital />
+                    </div>
+                ) : null} */}
+
+                {this.state.role== 'patient' ? (
+                    <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
+                        < BP />
+                    </div>
+                ) : null}
+
+                {this.state.role== 'patient' ? (
+                    <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
+                        < HeartRate />
+                    </div>
+                ) : null}
+
+                {this.state.role== 'patient' ? (
+                    <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
+                        < Temperature />
+                    </div>
+                ) : null}
+
+                {this.state.role== 'patient' ? (
+                    <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
+                        < SPO2 />
+                    </div>
+                ) : null}
+
+                {this.state.role== 'patient' ? (
+                    <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
+                        < RespirationRate />
+                    </div>
+                ) : null}
+
 
                 </FuseAnimateGroup>
             
