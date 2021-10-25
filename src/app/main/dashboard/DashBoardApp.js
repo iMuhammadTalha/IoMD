@@ -125,31 +125,31 @@ class DashBoardApp extends Component {
                     </div>
                 ) : null} */}
 
-                {this.state.role== 'patient' ? (
+                {this.state.role== 'patient' || this.state.role== 'caretaker' ? (
                     <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
                         < BP />
                     </div>
                 ) : null}
 
-                {this.state.role== 'patient' ? (
+                {this.state.role== 'patient' || this.state.role== 'caretaker' ? (
                     <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
                         < HeartRate />
                     </div>
                 ) : null}
 
-                {this.state.role== 'patient' ? (
+                {this.state.role== 'patient' || this.state.role== 'caretaker' ? (
                     <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
                         < Temperature />
                     </div>
                 ) : null}
 
-                {this.state.role== 'patient' ? (
+                {this.state.role== 'patient' || this.state.role== 'caretaker' ? (
                     <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
                         < SPO2 />
                     </div>
                 ) : null}
 
-                {this.state.role== 'patient' ? (
+                {this.state.role== 'patient' || this.state.role== 'caretaker' ? (
                     <div className="widget flex w-full sm:w-1/2 md:w-1/4 p-12">
                         < RespirationRate />
                     </div>

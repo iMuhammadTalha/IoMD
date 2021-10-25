@@ -14,9 +14,16 @@ class RespirationRate extends Component {
     }
 
     refreshData = () => {
-        let patient_id = localStorage.getItem('id');
+        let id = localStorage.getItem('id');
 
-        const url = "vital/get-a-recent-vital/"+patient_id;
+        let url;
+        if(localStorage.getItem('role')=='patient'){
+            url = "vital/get-a-recent-vital/"+id;
+        } else if (localStorage.getItem('role')=='caretaker'){
+            url = "vital/get-a-recent-vital-by-caretaker/"+id;
+        } else {
+            
+        }
 
         this.props.getPatientRecentVital(url);
     }
