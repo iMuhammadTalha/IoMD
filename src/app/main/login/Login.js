@@ -77,7 +77,7 @@ class Login extends Component {
                                 <Tab
                                     icon={
                                         <img
-                                            className="h-40 p-4 bg-black rounded-12"
+                                            className="w-128 mb-32"
                                             src="assets/images/Admin.png"
                                             alt="firebase"
                                         />
