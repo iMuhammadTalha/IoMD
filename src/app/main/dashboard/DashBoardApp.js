@@ -14,7 +14,7 @@ import Doctor from "./doctor"
 import Patient from "./patient"
 import CareTaker from "./caretaker"
 
-import Vital from "./vital"
+// import Vital from "./vital"
 import BP from "./bp"
 import HeartRate from "./heartRate"
 import Temperature from "./temperature"
