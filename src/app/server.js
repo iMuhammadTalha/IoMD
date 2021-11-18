@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const Base_URL = "http://localhost:3000/";
-// export const Base_URL = "http://111.68.101.14:3000/";      //Development & testing
+// export const Base_URL = "http://localhost:3000/";
+export const Base_URL = "http://111.68.101.20:3000/";      //SEECS Server
 
 const token = localStorage.getItem('jwtToken');
 axios.defaults.headers.common['Authorization'] = token;
