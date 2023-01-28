@@ -190,13 +190,13 @@ const doctorNavigationConfig = [
                 url: '/vitals',
                 icon: 'whatshot',
             },
-            {
-                id: 'vitals-graphical',
-                title: 'ECG Graph',
-                type: 'item',
-                url: '/vitals-graph',
-                icon: 'whatshot',
-            },
+            // {
+            //     id: 'vitals-graphical',
+            //     title: 'ECG Graph',
+            //     type: 'item',
+            //     url: '/vitals-graph',
+            //     icon: 'whatshot',
+            // },
             {
                 id: 'vitals-graphical',
                 title: 'Vitals Graph',
@@ -237,20 +237,20 @@ const patientNavigationConfig = [
                 icon: 'whatshot',
                 url: '/dashboard'
             },
-            {
-                id: 'history',
-                title: 'History',
-                type: 'item',
-                icon: 'whatshot',
-                url: '/patients'
-            },
-            {
-                id: 'medication',
-                title: 'Medication',
-                type: 'item',
-                icon: 'whatshot',
-                url: '/careTakers'
-            }
+            // {
+            //     id: 'history',
+            //     title: 'History',
+            //     type: 'item',
+            //     icon: 'whatshot',
+            //     url: '/patients'
+            // },
+            // {
+            //     id: 'medication',
+            //     title: 'Medication',
+            //     type: 'item',
+            //     icon: 'whatshot',
+            //     url: '/careTakers'
+            // }
         ]
     },
     {
@@ -266,13 +266,13 @@ const patientNavigationConfig = [
                 url: '/vitals',
                 icon: 'whatshot',
             },
-            {
-                id: 'vitals-graphical',
-                title: 'ECG Graph',
-                type: 'item',
-                url: '/vitals-graph',
-                icon: 'whatshot',
-            },
+            // {
+            //     id: 'vitals-graphical',
+            //     title: 'ECG Graph',
+            //     type: 'item',
+            //     url: '/vitals-graph',
+            //     icon: 'whatshot',
+            // },
             {
                 id: 'vitals-graphical',
                 title: 'Vitals Graph',
@@ -313,20 +313,20 @@ const caretakerNavigationConfig = [
                 icon: 'whatshot',
                 url: '/dashboard'
             },
-            {
-                id: 'history',
-                title: 'History',
-                type: 'item',
-                icon: 'whatshot',
-                url: '/patients'
-            },
-            {
-                id: 'medication',
-                title: 'Medication',
-                type: 'item',
-                icon: 'whatshot',
-                url: '/careTakers'
-            }
+            // {
+            //     id: 'history',
+            //     title: 'History',
+            //     type: 'item',
+            //     icon: 'whatshot',
+            //     url: '/patients'
+            // },
+            // {
+            //     id: 'medication',
+            //     title: 'Medication',
+            //     type: 'item',
+            //     icon: 'whatshot',
+            //     url: '/careTakers'
+            // }
         ]
     },
     {
@@ -342,13 +342,13 @@ const caretakerNavigationConfig = [
                 url: '/vitals',
                 icon: 'whatshot',
             },
-            {
-                id: 'vitals-graphical',
-                title: 'ECG Graph',
-                type: 'item',
-                url: '/vitals-graph',
-                icon: 'whatshot',
-            },
+            // {
+            //     id: 'vitals-graphical',
+            //     title: 'ECG Graph',
+            //     type: 'item',
+            //     url: '/vitals-graph',
+            //     icon: 'whatshot',
+            // },
             {
                 id: 'vitals-graphical',
                 title: 'Vitals Graph',
